@@ -40,7 +40,7 @@ view: date_base {
     convert_tz: no
     sql:
       {% if _dialect._name == 'redshift' %}
-        DATETRUNC(MONTH, ${date_date})
+        DATE_TRUNC('MONTH', ${date_date})
       {% else %}
         DATE_TRUNC(MONTH, ${date_date})
       {% endif %}
@@ -55,7 +55,7 @@ view: date_base {
     type: date
     convert_tz: no
     sql: {% if _dialect._name == 'redshift' %}
-        DATETRUNC(QUARTER, ${date_date})
+        DATE_TRUNC('QUARTER', ${date_date})
       {% else %}
         DATE_TRUNC(${date_date}, QUARTER)
       {% endif %} ;;
@@ -69,7 +69,7 @@ view: date_base {
     type: date
     convert_tz: no
     sql: {% if _dialect._name == 'redshift' %}
-        DATETRUNC(YEAR, ${date_date})
+        DATE_TRUNC('YEAR', ${date_date})
         {% else %}
         DATE_TRUNC(${date_date}, YEAR)
       {% endif %}  ;;
