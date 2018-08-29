@@ -40,7 +40,7 @@ view: date_base {
     convert_tz: no
     sql:
       {% if _dialect._name == 'redshift' %}
-        DATETRUNC(${date_date}, MONTH)
+        DATETRUNC(MONTH, ${date_date})
       {% else %}
         DATE_TRUNC(MONTH, ${date_date})
       {% endif %}
